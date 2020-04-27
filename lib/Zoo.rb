@@ -25,11 +25,9 @@ class Zoo
 
     def find_by_species(species)
         Animal.all.select {|animal| animal.species == species}
-        #animals.map {|animal| animal.species == species}
     end
     #works don't change!
     def animal_nicknames
-        #Animal.all.select {|nickname| nickname.zoo}
         animals.map {|animal| animal.nickname}
     end
 
