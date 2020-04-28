@@ -1,6 +1,6 @@
 class Animal
-    attr_reader :species, :nickname
-    attr_accessor :weight, :zoo
+    attr_reader :species
+    attr_accessor :weight, :zoo, :nickname
     @@all = []
 
     def initialize(species, weight, nickname, zoo)
@@ -15,11 +15,7 @@ class Animal
         @@all
     end
 
-    # def zoo
-    #     self.zoo
-    # end
-
     def self.find_by_species(find_species)
-        Animal.all.select{|animal| animal.species == find_species}.uniq
+        @@all.select{|animal| animal.species == find_species}.uniq
     end
 end

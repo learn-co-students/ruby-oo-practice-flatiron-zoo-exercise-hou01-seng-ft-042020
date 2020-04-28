@@ -1,5 +1,5 @@
 class Zoo
-    attr_reader :name, :location
+    attr_accessor :name, :location
     @@all = []
 
     def initialize(name, location)
@@ -13,7 +13,7 @@ class Zoo
     end
 
     def animals
-        Animals.all.select {|animal| animal.zoo == self}
+        Animal.all.select {|animals| animals.zoo == self}
     end
 
     def animal_species
@@ -21,17 +21,14 @@ class Zoo
     end
 
     def find_by_species(find_species)
-        animals.all.select {|animal|animal.species == find_species}
+        animals.select {|animal|animal.species == find_species}
     end
 
     def animal_nicknames(find_nicknames)
-        animals.map {|animal|animal.nickname}
+        animals.find {|animal|animal.nickname = find_nicknames}
     end
 
     def self.find_by_location(find_location)
-        self.all.select {|animal|animal.location == find_location}
-        animal
+        @@all.select{|zoos| zoos.location == find_location}
     end
-
-
 end
